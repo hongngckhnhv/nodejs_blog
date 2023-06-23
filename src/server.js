@@ -6,6 +6,9 @@ const app = express(); // trả về đối tượng để xây dựng lại web
 const port = 3000;
 
 const route = require('./routes');
+const db = require('./config/db');
+//connect db
+db.connect();
 
 app.use(express.static(path.join(__dirname, 'public')));
 
