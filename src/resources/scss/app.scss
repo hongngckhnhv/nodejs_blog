@@ -5,14 +5,10 @@
     margin-top: 16px;
 }
 
+// dropdown
 .ml-auto{
     margin-left: auto;
 }
-
-.dropdown:hover{
-
-}
-
 
 #nav{
     display: inline-block;
@@ -70,4 +66,12 @@
 
 #nav .nav-arrow-down{
     font-size: 14px;
+}
+
+//img 
+.user-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: -4px;
 }
