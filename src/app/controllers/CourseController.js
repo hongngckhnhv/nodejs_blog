@@ -51,6 +51,9 @@ class CourseController {
             .catch(next)
     }
 
+    //[DELETE] /courses/:id/
+
+
 }
 
 module.exports = new CourseController();
