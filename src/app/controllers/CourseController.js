@@ -58,6 +58,11 @@ class CourseController {
             .catch(next)
     }
 
+    //[POST] /courses/handle-from-actions
+    handleFromAction(req, res, next) {
+        res.json(req.body);
+    }
+
 }
 
 module.exports = new CourseController();

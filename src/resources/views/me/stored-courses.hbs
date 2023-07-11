@@ -1,4 +1,4 @@
-<div class="mt-4">
+<form class="mt-4" name="container-from" method="POST" action="/courses/handle-from-actions">
     <div>
       <h3>Khóa học của tôi</h3>
       <a href="/me/trash/courses">Thùng rác ({{deletedCount}})</a>
@@ -11,7 +11,7 @@
             </label>
           </div>   
 
-          <select class="form-control form-control-sm select-all-options" aria-label="Default select example">
+          <select class="form-control form-control-sm select-all-options" aria-label="Default select example" name="action">
             <option>-- Hành động --</option>
             <option value="delete">Xóa</option>
             <option value="2">Two</option>
@@ -61,7 +61,7 @@
 
     </tbody>
     </table>    
-</div>
+</form>
 
 
 {{!-- confirm delete course --}}
@@ -91,6 +91,7 @@
      document.addEventListener('DOMContentLoaded', function() {
       var courseId;
       var deleteForm = document.forms['delete-course-form'];
+      var containerFrom = document.forms['container-from'];
       var btnDeleteCourse = document.getElementById('btn-delete-course');
       var checkboxAll = $('#checkbox-all');
       var courseItemCheckbox = $('input[name="courseIds[]"]');
@@ -120,6 +121,17 @@
         var isCheckedAll= courseItemCheckbox.length == $('input[name="courseIds[]"]:checked').length;
         checkboxAll.prop('checked',  isCheckedAll);
         renderCheckAllSubmitBtn();
+      })
+
+      // check all submit button clicked
+      checkAllSubmitBtn.click(function(e) {
+        e.preventDefault();
+
+        var isSubmitTable = !$(this).hasClass('disable');
+        if(isSubmitTable){
+          containerFrom.submit();
+        }
+
       })
 
       // re-render check all submit button 
