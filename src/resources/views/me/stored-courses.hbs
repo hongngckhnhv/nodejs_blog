@@ -11,8 +11,8 @@
             </label>
           </div>   
 
-          <select class="form-control form-control-sm select-all-options" aria-label="Default select example" name="action">
-            <option>-- Hành động --</option>
+          <select class="form-control form-control-sm select-all-options" aria-label="Default select example" name="action" required>
+            <option value="">-- Hành động --</option>
             <option value="delete">Xóa</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
@@ -124,14 +124,13 @@
       })
 
       // check all submit button clicked
-      checkAllSubmitBtn.click(function(e) {
-        e.preventDefault();
 
+      checkAllSubmitBtn.on('submit', function(e) {
         var isSubmitTable = !$(this).hasClass('disable');
-        if(isSubmitTable){
-          containerFrom.submit();
+        if(!isSubmitTable){
+          e.preventDefault();
         }
-
+       
       })
 
       // re-render check all submit button 
