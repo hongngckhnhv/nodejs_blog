@@ -17,7 +17,7 @@
             <option value="2">Two</option>
             <option value="3">Three</option>
           </select>
-          <button class="btn btn-primary btn-sm btn-check-all-submit disabled">Thực hiện</button>
+          <button class="btn btn-primary btn-sm btn-check-all-submit" disabled="disabled">Thực hiện</button>
       </div>
 
     </div>
@@ -137,9 +137,9 @@
       function renderCheckAllSubmitBtn() {
         var checkedCount = $('input[name="courseIds[]"]:checked').length;
         if (checkedCount > 0 ) {
-          checkAllSubmitBtn.removeClass('disabled');
+          checkAllSubmitBtn.attr('disabled', false);
         } else{
-          checkAllSubmitBtn.addClass('disabled');
+          checkAllSubmitBtn.attr('disabled', true);
 
         }
       }
